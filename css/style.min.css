@@ -4,6 +4,8 @@
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   padding: 1rem 2rem;
+  background-image: url(../img/images/images.jpg);
+  background-size: cover;
 }
 .article_card .article_title {
   text-transform: uppercase;
@@ -44,7 +46,7 @@
   font-family: serif;
   font-size: 2rem;
   text-align: center;
-  line-height: 1.2rem;
+  line-height: 2rem;
   margin-bottom: 1.2rem;
 }
 .article_card .take_block .take_block__left .block_left__title span {
