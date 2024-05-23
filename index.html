@@ -64,34 +64,37 @@
                     скриншот алыңыз
                 </p>
 
-                <div class="slider_wrapper">
-                    <div class="slider">
-                        <button class="slide-btn prev-btn">←</button>
-                        <div class="slider-wrapper">
-                            <div class="slider-card" style="background-image: url('img/images/eee.jpg');">
-                                <p>СубханАллах 100 рет</p>
-                                <p>400 тг</p>
-                            </div>
-                            <div class="slider-card" style="background-image: url('img/images/images.jpg');">
-                                <p>Әлһамдулиллаһ 100 рет</p>
-                                <p>700 тг</p>
-                            </div>
-                            <div class="slider-card" style="background-image: url('img/images/ramadan-8564369_640.webp');">
-                                <p>Аллаһу Әкбар 100 рет</p>
-                                <p>1000 тг</p>
-                            </div>
-                            <div class="slider-card" style="background-image: url('img/images/scale_1200.jpg');">
-                                <p>Аллаһумма солли а’ла Мухаммад уа а’ла әәли Мухаммад 300 рет 2000 тг</p>
-                                <p>2000 тг</p>
-                            </div>
-                            <div class="slider-card" style="background-image: url('img/images/an-islamic-lantern-with-a-blurred-mosque-in-the-background-for-al-fitr-and-adha-eid_1123-287.avif');">
-                                <p>Бір кірпіштін құны  бізге 20 000 кірпіш керек</p>
-                                <p>1000 тг</p>
+                <article class="article_card">
+                    <h2 class="article_title">Бүгінгі күннің садақасы мен зікірін тандаңыз</h2>
+                    <div class="take_block">
+                        <div class="take_block__left">
+                            <h3 class="block_left__title">СубханАллах <br> <span>(100 рет айту)</span></h3>
+                            <input type="checkbox" name="" id="">
+                        </div>
+                        <div class="take_block__right">
+                            <div class="block_right__title">400тг</div>
+                            <div class="wrap">
+                                <label for="">Садақа</label>
+                                <input type="checkbox" name="" id="" class="large">
                             </div>
                         </div>
-                        <button class="slide-btn next-btn">→</button>
                     </div>
-                </div>
+                    <div class="kaspi_block">
+                        <img src="https://companieslogo.com/img/orig/KKS.F.D-d5cf09c2.png?t=1685426980" alt="kaspi">
+                        <div class="kaspi_right">
+                            <p>8 (747) 110-68-58</p>
+                            <p>Гульнур К</p>
+                        </div>
+                    </div>
+                    <p class="article_card__text">Садақа бергенде оқылатын дұға
+                        <br>
+                        رَبَّنَا تَقَبَّلْ مِنَّا اِنَّكَ اَنْتَ السَّمِيعُ الْعَلِيمُ
+                        <br>
+                        Оқылуы: «Раббанә тақаббәл миннә иннәкә әнтәссәмиғул алим».
+                        <br>
+                        Мағынасы: «Раббымыз бізден қабыл ет! <br> Күдіксіз Сен естушісің және білушісің».
+                    </p>
+                </article>
 
                 <div class="hero_blue hero_blue-last">
                     Біз туралы
@@ -187,6 +190,35 @@
     <div class="overlay none"></div>
 
     <script src="js/script.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    let titles = [
+        { title: 'СубханАллах (100 рет айту)', price: '400тг' },
+        { title: 'Әлһамдулиллаһ (100 рет айту)', price: '700тг' },
+        { title: 'Аллаһу Әкбар (100 рет айту)', price: '1000тг' },
+        { title: 'Аллаһумма солли а’ла Мухаммад уа а’ла әәли Мухаммад (300 рет айту)', price: '2000тг' }
+    ];
+    let currentIndex = 0;
+    let intervalId = setInterval(changeText, 1000);
+    let pauseCheckbox = document.querySelector('.take_block__left input[type="checkbox"]');
+
+    function changeText() {
+        let titleElement = document.querySelector('.block_left__title');
+        let priceElement = document.querySelector('.block_right__title');
+        titleElement.innerHTML = titles[currentIndex].title + '<br><span>(100 рет айту)</span>';
+        priceElement.textContent = titles[currentIndex].price;
+        currentIndex = (currentIndex + 1) % titles.length;
+    }
+
+    pauseCheckbox.addEventListener('click', function() {
+        if (this.checked) {
+            clearInterval(intervalId);
+        } else {
+            intervalId = setInterval(changeText, 1000);
+        }
+    });
+});
+    </script>
 </body>
 
 </html>
